@@ -16,7 +16,7 @@ export interface NavItem {
 }
 
 export const nav: NavItem[] = [
-  { path: '/home', label: 'Home' },
+  { path: '/', label: 'Public demo' },
   { path: '/blind', label: 'Review workspace' },
   { path: '/settings', label: 'Settings' },
   // The /api-status debug page still exists — add

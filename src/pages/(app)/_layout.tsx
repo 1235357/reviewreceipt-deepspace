@@ -16,7 +16,8 @@
  */
 
 import { Suspense, type ReactNode } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet,useLocation } from 'react-router-dom'
+import '../../scope/review.css'
 import { DeepSpaceAuthProvider, useAuthStatus } from 'deepspace'
 import { RecordProvider, RecordScope, AgentTools } from 'deepspace'
 import Navigation from '../../components/Navigation'
@@ -25,13 +26,15 @@ import { APP_NAME, SCOPE_ID } from '../../constants'
 import { schemas } from '../../schemas'
 
 export default function AppLayout() {
+  const {pathname}=useLocation()
+  const reviewRoute=pathname==='/home'||pathname==='/blind'
   return (
     <DeepSpaceAuthProvider>
       {/* The prerendered landing owns the document <title> and React drops it
           when <Seo> unmounts, so every route without <Seo> sets its own. */}
       <title>{APP_NAME}</title>
-      <AuthBoot>
-        <div className="flex h-screen flex-col bg-background overflow-hidden">
+      <AuthBoot reviewRoute={reviewRoute}>
+        <div className={"flex h-screen flex-col bg-background overflow-hidden"+(reviewRoute?" review-shell":"")}>
           <Navigation />
           <main className="flex-1 overflow-y-auto min-h-0">
             <Suspense fallback={<div className="flex items-center justify-center h-full text-muted-foreground">Loading...</div>}>
@@ -53,7 +56,7 @@ export default function AppLayout() {
  * steady theme-colored screen until the shell appears. No spinner text: the
  * check is one round-trip, and in-flow placeholders read as a layout jump.
  */
-function AuthBoot({ children }: { children: ReactNode }) {
+function AuthBoot({ children,reviewRoute }: { children: ReactNode;reviewRoute:boolean }) {
   const { isLoaded } = useAuthStatus()
   // Record writes (`create`/`put`/`remove`) are fire-and-forget — they resolve
   // before the server answers, so a denied or invalid write only surfaces
@@ -62,7 +65,7 @@ function AuthBoot({ children }: { children: ReactNode }) {
   const { error, warning } = useToast()
 
   if (!isLoaded) {
-    return <div aria-busy="true" className="fixed inset-0 bg-background" />
+    return reviewRoute?<div className="review-boot" aria-busy="true"><strong>ReviewReceipt</strong><label htmlFor="review-boot-progress">Opening your workspace</label><progress id="review-boot-progress"/></div>:<div aria-busy="true" className="fixed inset-0 bg-background" />
   }
 
   return (

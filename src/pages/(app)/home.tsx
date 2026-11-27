@@ -1,6 +1,7 @@
-import {Link} from 'react-router-dom'
+import {Link,Navigate} from 'react-router-dom'
+import {useAuthStatus} from 'deepspace'
 import '../../scope/review.css'
-export default function HomePage(){return <section className="review-page review-home">
+export default function HomePage(){const {isSignedIn}=useAuthStatus();if(isSignedIn)return <Navigate to="/blind" replace/>;return <section className="review-page review-home">
  <header><p className="review-kicker">Your review workspace</p><h1>Make the next AI decision count.</h1><p>ReviewReceipt helps teams compare outputs against shared criteria, preserve independent judgments, and turn the result into a usable handoff.</p></header>
  <div className="review-home-grid">
  <article className="review-card"><p className="review-kicker">01 · Shared and persistent</p><h2>Open review workspace</h2><p>Invite two registered reviewers, freeze the task and collect sealed votes across devices.</p><Link className="review-primary" to="/blind">Open workspace →</Link></article>

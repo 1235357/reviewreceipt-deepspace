@@ -51,7 +51,7 @@ export default function Navigation() {
   })
 
   const navLink = (item: (typeof nav)[number]) => {
-    const active = location.pathname.startsWith(item.path)
+    const active = item.path === '/' ? location.pathname === '/' : location.pathname === item.path || location.pathname.startsWith(item.path + '/')
     return (
       <Link
         key={item.path}

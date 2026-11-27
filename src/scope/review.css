@@ -101,3 +101,16 @@
 .review-template button{margin-top:auto;background:#fff;color:#194e3b;border:1px solid #8dab9b;border-radius:7px;min-height:44px;font-size:.8rem;padding:.45rem .5rem}
 @media(max-width:1000px){.review-shared .review-template-grid{grid-template-columns:1fr}}
 @media(max-width:680px){.review-template-grid{grid-template-columns:1fr}}
+.review-shell{background:#f4f8f6;color:#172c28;color-scheme:light}
+.review-shell nav[data-testid="app-navigation"]{background:#fff;border-color:#d4e2db}
+.review-shell nav[data-testid="app-navigation"] a,.review-shell nav[data-testid="app-navigation"] button{color:#194e3b}
+.review-shell nav[data-testid="app-navigation"] a[aria-current="page"]{background:#e4f0e9;border-radius:7px;font-weight:700}
+.review-shell nav[data-testid="app-navigation"] a:focus-visible,.review-shell nav[data-testid="app-navigation"] button:focus-visible{outline:3px solid #b86e10;outline-offset:3px}
+.review-shell nav[data-testid="app-navigation"] [data-testid="nav-user-name"]{color:#194e3b}
+.review-shell .review-page{border-radius:0}
+.review-boot{position:fixed;inset:0;background:#f4f8f6;color:#172c28;display:grid;place-content:center;justify-items:center;gap:.6rem;color-scheme:light}
+.review-boot strong{font-size:1.35rem;letter-spacing:-.03em;color:#194e3b}
+.review-boot label{font-size:.85rem}
+.review-boot progress{accent-color:#194e3b;width:12rem;height:.65rem}
+.review-shell nav[data-testid="app-navigation"] [data-testid="nav-sign-in-button"]{background:#194e3b;color:#fff;border:1px solid #194e3b;min-height:36px}
+.review-shell nav[data-testid="app-navigation"] button[aria-label="Account menu"]{background:#fff;border-color:#b6c9bf;color:#194e3b}
