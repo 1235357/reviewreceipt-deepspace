@@ -26,6 +26,8 @@ describe('product entry points',()=>{
   const root=render('/')
   expect(root).toContain('Two AI answers.')
   expect(root).toContain('Which barcode scanning guide revision should ship?')
+  expect(root).toContain('<details open=\"\"><summary>Review method</summary>')
+  expect(root).toContain('<details open=\"\"><summary>Technical architecture</summary>')
   expect(root).toContain('reviewreceipt-method.drawio')
   expect(root).toContain('reviewreceipt-architecture.drawio')
   expect(root).toContain('Compare my own answers')
