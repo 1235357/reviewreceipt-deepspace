@@ -20,3 +20,15 @@ describe('public pages prerender', () => {
     expect(html.slice(at)).toMatch(/<(h1|h2|p|main|section|article|a)\b/)
   })
 })
+
+describe('product entry points',()=>{
+ it('opens ReviewReceipt at root and preserves ScopeCheck only in the archive',()=>{
+  const root=render('/')
+  expect(root).toContain('Compare AI outputs.')
+  expect(root).toContain('Compare my own answers')
+  expect(root).toContain('Use my own answers')
+  const archive=render('/scopecheck')
+  expect(archive).toContain('ScopeCheck')
+  expect(archive).toContain('Return to ReviewReceipt')
+ })
+})

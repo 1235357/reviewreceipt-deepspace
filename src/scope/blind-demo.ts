@@ -34,7 +34,7 @@ export function localReviewReceipt(packet:LocalPacket,votes:[Vote|null,Vote|null
  })
  if(!receipt)return null
  const warning=sample?'SIMULATED DEMO — authored examples, one device, no real collaboration.':'LOCAL GUEST REVIEW — supplied responses, one device; reviewer identities and independence are not verified.'
- return warning+'\n\n'+receipt
+ return warning+'\n\n'+receipt.replace('# Independent review receipt','# Local review receipt').replace('## Independent judgments','## Local review slots').replace('Both independent reviewers','Both review slots')
 }
 export function sampleReviewReceipt(votes:[Vote|null,Vote|null],reasons:[string,string]) {
  return localReviewReceipt(samplePacket,votes,reasons,true)
