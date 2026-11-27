@@ -5,7 +5,7 @@ test('four distinct sessions, sealed votes, confirmed realtime reveal, reconnect
  const [owner,a,b,outsider]=await users(4)
  const members=[owner,a,b,outsider]
  expect(new Set(members.map(u=>u.email)).size).toBe(4)
- for(const u of members){await u.page.goto('/blind');await expect(u.page.getByRole('heading',{name:'ReviewReceipt',exact:true})).toBeVisible();await u.page.getByRole('button',{name:'Account menu'}).click();await expect(u.page.getByTestId('nav-user-email')).toHaveText(u.email);await u.page.getByRole('button',{name:'Account menu'}).click();await expect(u.page.getByTestId('blind-connection')).toHaveText('Connected')}
+ for(const u of members){await u.page.goto('/blind');await expect(u.page.getByRole('heading',{name:/Decide together.*Judge separately/})).toBeVisible();await u.page.getByRole('button',{name:'Account menu'}).click();await expect(u.page.getByTestId('nav-user-email')).toHaveText(u.email);await u.page.getByRole('button',{name:'Account menu'}).click();await expect(u.page.getByTestId('blind-connection')).toHaveText('Connected')}
  const excludedBaseline=await outsider.page.getByTestId('blind-receipt-count').textContent()
  const title='__test-'+Date.now()+'__ ReviewReceipt'
  await owner.page.getByLabel('Room title').fill(title)

@@ -75,3 +75,20 @@
 .review-result-details .review-answers{margin-top:.75rem}
 .review-page progress{max-width:none;height:.6rem}
 .review-page [tabindex="-1"]:focus-visible{outline:3px solid #b86e10;outline-offset:4px}
+.review-shared .review-shared-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;max-width:none}
+.review-shared-header h1{font-size:clamp(2.3rem,5vw,3.8rem)}
+.review-shared-status{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem}
+.review-shared-status span{font-size:.85rem;font-weight:700;background:#e4f0e9;padding:.5rem .85rem;border-radius:100px}
+.review-shared .review-shared-layout{grid-template-columns:minmax(0,1fr) minmax(0,1.9fr)}
+.review-queue-card{position:relative}
+.review-queue-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;margin-bottom:1.25rem}
+.review-queue-head h2{margin:0}
+.review-queue-card h3{font-size:1.1rem}
+.review-create-stage{border-top:1px solid #d5e3db;padding-block:1.15rem;display:grid;gap:.75rem}
+.review-field{display:grid;gap:.25rem}
+.review-form .review-candidate-fields{display:grid;gap:.6rem;background:#f1f6f3;border-color:#a8bcb1}
+.review-invite{display:grid;gap:.5rem;border:1px solid #b6cdbe;border-radius:10px;padding:1rem;background:#edf5ef}
+.review-invite h3{font-size:1.12rem;margin:0}
+.review-invite-row{display:flex;flex-wrap:wrap;gap:.5rem}
+.review-invite-row input{flex:1;min-width:0}
+@media(max-width:920px){.review-shared .review-shared-layout{grid-template-columns:1fr}.review-shared .review-shared-header{flex-direction:column}}
