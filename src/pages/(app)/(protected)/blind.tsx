@@ -1,6 +1,8 @@
 import {useState,useEffect,useCallback,type FormEvent} from 'react'
 import {getAuthToken,useAuth,useUsers,useQuery,useRecordContext} from 'deepspace'
 import '../../../scope/review.css'
+import {ReviewTemplates} from '../../../components/ReviewTemplates'
+import {applyReviewTemplate} from '../../../scope/review-templates'
 import {decisionReceipt,nextCheck,reviewOutcome} from '../../../scope/decision-receipt'
 type Summary={roomId:string;title:string;role:'owner'|'reviewer'}
 type Room=Summary & {prompt:string;rubric:string;submitted:number;total:number;ownSubmitted:boolean;revealed:boolean;answers?:{label?:string;identity?:string;text:string}[];results?:{reviewerId:string;choice:string;identity:string|null;canonical:number|null;reason:string}[];agreement?:boolean}
@@ -47,7 +49,7 @@ function BlindBody(){
  </article>}
  </section><section className="review-shared-create"><form className="review-card review-form" aria-labelledby="create-room-title" method="post" onSubmit={create}><h2 id="create-room-title">Create a review room</h2><p>All fields are required. Use public or non-sensitive responses; remove model names from their text.</p>
  <div className="review-invite"><h3>Invite two reviewers</h3><p>Share the workspace link with two teammates. Ask them to sign in and open this page, then choose their names below. The link alone does not grant access to a room.</p><label htmlFor="invite-link">Workspace link</label><div className="review-invite-row"><input id="invite-link" value={workspaceUrl} readOnly onFocus={e=>e.target.select()}/><button type="button" onClick={()=>void copyInvite()}>Copy link</button></div><p role="status" className="review-muted">{inviteNotice}</p><p className="review-muted">{available.length===0?'No other registered participants yet.':available.length===1?'One other registered participant. Invite one more.':available.length+' registered participants available.'}</p><button type="button" disabled={!ready||pending||Object.values(form).some(Boolean)} onClick={()=>window.location.reload()}>Refresh participants</button><p className="review-muted">Refresh before drafting; the control is disabled while fields contain unsaved text.</p></div>
- <div className="review-create-stage"><p className="review-kicker">01 · Set the question</p>{field('title','Room title',100)}{field('prompt','Question',3000,true)}{field('rubric','Evaluation criteria',2000,true)}</div>
+ <div className="review-create-stage"><p className="review-kicker">01 · Set the question</p><ReviewTemplates onApply={t=>setForm(f=>applyReviewTemplate(f,t))}/>{field('title','Room title',100)}{field('prompt','Question',3000,true)}{field('rubric','Evaluation criteria',2000,true)}</div>
  <div className="review-create-stage"><p className="review-kicker">02 · Add two candidate responses</p><div className="review-answers">
  <fieldset className="review-candidate-fields"><legend>Candidate one</legend>{field('identity1','First response identity (hidden)',100)}{field('answer1','First response',6000,true)}</fieldset>
  <fieldset className="review-candidate-fields"><legend>Candidate two</legend>{field('identity2','Second response identity (hidden)',100)}{field('answer2','Second response',6000,true)}</fieldset></div></div>
