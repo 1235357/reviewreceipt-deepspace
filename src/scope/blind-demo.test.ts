@@ -9,7 +9,7 @@ describe('public illustrative comparison',()=>{
 
 describe('public demonstration receipt',()=>{
  it('is unavailable before both independent simulated reasons exist',()=>expect(sampleReviewReceipt(['A',null],['reason one',''])).toBeNull())
- it('marks the returned receipt as simulated and includes both reasons',()=>{const receipt=sampleReviewReceipt(['A','B'],['reason one','reason two'])!;expect(receipt).toContain('SIMULATED DEMO');expect(receipt).toContain('reason one');expect(receipt).toContain('reason two')})
+ it('marks the returned receipt as simulated and includes both reasons',()=>{const receipt=sampleReviewReceipt(['A','B'],['reason one','reason two'])!;expect(receipt).toContain('SIMULATED DEMO');expect(receipt).toContain('stackoverflow.com/questions/76280041');expect(receipt).toContain('techdocs.zebra.com/datawedge/15-0/guide/api/softscantrigger/');expect(receipt).toContain('reason one');expect(receipt).toContain('reason two')})
 })
 
 import {freezeLocalPacket,localReviewReceipt,samplePacket} from './blind-demo'
