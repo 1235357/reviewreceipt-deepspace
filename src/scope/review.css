@@ -61,3 +61,17 @@
 .review-home-grid article>a{margin-top:auto}
 .review-home-grid article>p:not(.review-kicker){margin-bottom:1rem}
 @media(max-width:800px){.review-page .review-hero{grid-template-columns:1fr;padding:2rem 0}.review-flow,.review-home-grid{grid-template-columns:1fr}.review-public-nav{align-items:flex-start;flex-direction:column}.review-public-nav>div{gap:.75rem}}
+
+/* Native form controls keep their keyboard/assistive behavior. The browser
+   default remains usable where accent-color is not supported. */
+.review-page{accent-color:#194e3b}
+.review-result{margin-block:1.25rem}
+.review-result-banner{background:#e4f0e9;border:1px solid #a8c7b4;border-radius:12px;padding:clamp(1rem,3vw,1.55rem)}
+.review-result-banner h3{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-.035em}
+.review-result-reasons{margin-block:1rem}
+.review-reason{min-width:0;border:1px solid #bccfc3;border-radius:10px;padding:1rem;background:white}
+.review-reason h4,.review-reason p{overflow-wrap:anywhere;white-space:pre-wrap}
+.review-result-details{padding:1rem;border:1px solid #bccfc3;border-radius:10px;margin-bottom:1rem}
+.review-result-details .review-answers{margin-top:.75rem}
+.review-page progress{max-width:none;height:.6rem}
+.review-page [tabindex="-1"]:focus-visible{outline:3px solid #b86e10;outline-offset:4px}
