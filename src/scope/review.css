@@ -114,3 +114,7 @@
 .review-boot progress{accent-color:#194e3b;width:12rem;height:.65rem}
 .review-shell nav[data-testid="app-navigation"] [data-testid="nav-sign-in-button"]{background:#194e3b;color:#fff;border:1px solid #194e3b;min-height:36px}
 .review-shell nav[data-testid="app-navigation"] button[aria-label="Account menu"]{background:#fff;border-color:#b6c9bf;color:#194e3b}
+.review-figures details{border-top:1px solid #d4e2db;padding:1rem 0}
+.review-figures summary{cursor:pointer;font-weight:700;min-height:44px;align-content:center}
+.review-figures iframe{display:block;width:100%;height:clamp(300px,48vw,560px);border:1px solid #c3d4ca;border-radius:12px;background:white;margin-block:1rem}
+.review-figures a{color:#194e3b;overflow-wrap:anywhere}

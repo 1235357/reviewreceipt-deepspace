@@ -24,7 +24,10 @@ describe('public pages prerender', () => {
 describe('product entry points',()=>{
  it('publishes only the canonical ReviewReceipt root',()=>{
   const root=render('/')
-  expect(root).toContain('Compare AI outputs.')
+  expect(root).toContain('Two AI answers.')
+  expect(root).toContain('Which documentation fix should ship?')
+  expect(root).toContain('reviewreceipt-method.drawio')
+  expect(root).toContain('reviewreceipt-architecture.drawio')
   expect(root).toContain('Compare my own answers')
   expect(root).toContain('Use my own answers')
   expect(PRERENDER_ROUTES).toEqual(['/'])

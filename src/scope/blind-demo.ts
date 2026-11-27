@@ -2,10 +2,10 @@ import {decisionReceipt} from './decision-receipt'
 export type Candidate={identity:string;text:string}
 export type LocalPacket={title:string;prompt:string;rubric:string;answers:[Candidate,Candidate]}
 export const responses = [
- { identity: 'Illustrative response 1', text: 'Use a native dialog element with showModal(), a clear title and close button. Test keyboard focus, Escape, and restoration of focus to the trigger.' },
- { identity: 'Illustrative response 2', text: 'Use a fixed-position overlay with a click-to-dismiss background. Add styling to make the panel look like a modal.' },
+ { identity: 'Illustrative response 1', text: 'Update the existing troubleshooting guide with a short checklist: verify the version, confirm the relevant configuration, and test with a minimal example. Link to the authoritative reference.' },
+ { identity: 'Illustrative response 2', text: 'Add a general note telling users to restart the application and retry. Include a link to the general support page.' },
 ] as const
-export const samplePacket:LocalPacket={title:'Illustrative sample',prompt:'How should a website implement an accessible modal?',rubric:'Prefer concrete, accessible behavior and verifiable guidance.',answers:[{...responses[0]},{...responses[1]}]}
+export const samplePacket:LocalPacket={title:'Choose a documentation fix',prompt:'Two AI tools propose different updates to a troubleshooting guide. Which should the team adopt?',rubric:'Favor actionable steps, version-specific evidence, and verifiable guidance. Do not assume an unconfirmed root cause.',answers:[{...responses[0]},{...responses[1]}]}
 export type Vote = 'A'|'B'|'tie'
 export function canonical(reviewer: 0|1, vote: Vote): number|null {
  if(vote==='tie') return null
