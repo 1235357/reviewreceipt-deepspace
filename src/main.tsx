@@ -5,8 +5,8 @@ import { routes } from '@generouted/react-router/lazy'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import { installStaleChunkRecovery } from './stale-chunk-recovery'
 import './styles.css'
-// The landing is prerendered; its board styles must load before hydration.
-import './scope/scope.css'
+// The canonical public landing is prerendered; its styles load before hydration.
+import './scope/review.css'
 
 async function main() {
   const root = document.getElementById('root')!

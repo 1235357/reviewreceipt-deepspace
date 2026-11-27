@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link,Navigate,useLocation } from 'react-router-dom'
 import { APP_NAME } from '../constants'
 
 export default function NotFound() {
+  const {pathname}=useLocation()
+  if(['/scopecheck','/workspace','/blind-demo','/api-status','/settings'].includes(pathname))return <Navigate to="/" replace/>
   return (
     <div className="flex min-h-screen flex-col items-center justify-center text-center px-4">
       <title>{`Not found · ${APP_NAME}`}</title>
@@ -9,7 +11,7 @@ export default function NotFound() {
       <h1 className="text-4xl font-bold text-foreground mb-2">404</h1>
       <p className="text-muted-foreground mb-6">Page not found</p>
       <Link
-        to="/home"
+        to="/"
         className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
       >
         Go home

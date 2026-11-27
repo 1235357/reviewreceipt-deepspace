@@ -16,6 +16,7 @@ import { settingsSchema } from './schemas/admin-schema'
 export const schemas: CollectionSchema[] = [
   usersSchema,
   settingsSchema,
+  // Retain the existing storage contract; no UI or navigation exposes it.
   decisionSchema,
   blindRoomSchema,blindBallotSchema,blindReceiptSchema,
 ]
