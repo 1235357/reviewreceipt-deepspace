@@ -27,3 +27,6 @@
 .review-page .review-buttons{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
 .review-page .review-buttons button:first-child{background:#194e3b;color:#fff}
 .review-page .review-alert{background:#fcebe7;color:#8a2717}
+.review-page .review-buttons button[aria-pressed]{background:#fff;color:#194e3b}
+.review-page .review-buttons button[aria-pressed="true"]{background:#194e3b;color:#fff}
+.review-page .review-buttons+h2,.review-page .review-buttons+form{margin-block-start:1rem}
